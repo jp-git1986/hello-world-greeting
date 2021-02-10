@@ -15,6 +15,11 @@ pipeline {
                   archive 'target/*.war'
 }
               }
+         stage('Static Code Analysis'){
+steps{
+    sh 'mvn clean verify sonar:sonar -Dsonar.projectName=hello-world-greetings -Dsonar.projectKey=hello-world-greetings -Dsonar.projectVersion=$BUILD_NUMBER';
+}
+}
 
           }
           
