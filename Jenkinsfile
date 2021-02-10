@@ -22,7 +22,7 @@ pipeline {
           }
 }
 steps{
-    sh 'mvn clean verify sonar:sonar -Dsonar.projectName=hello-world-greetings -Dsonar.projectKey=hello-world-greetings -Dsonar.projectVersion=$BUILD_NUMBER';
+    sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://34.123.29.142:9000 -Dsonar.login=0308c497c6e118600ab06ce892caffef17c12c0e -Dsonar.projectName=hello-world-greetings -Dsonar.projectKey=hello-world-greetings -Dsonar.projectVersion=$BUILD_NUMBER';
 }
 }
 
