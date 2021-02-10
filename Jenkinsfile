@@ -16,6 +16,11 @@ pipeline {
 }
               }
          stage('Static Code Analysis'){
+       agent { docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+          }
+}
 steps{
     sh 'mvn clean verify sonar:sonar -Dsonar.projectName=hello-world-greetings -Dsonar.projectKey=hello-world-greetings -Dsonar.projectVersion=$BUILD_NUMBER';
 }
