@@ -4,7 +4,8 @@ pipeline {
           stage ("printenv")
 {
 steps {
-sh 'env' }
+sh 'env'
+sh 'pwd' }
 }
           stage ("gitcheckout")
           {
