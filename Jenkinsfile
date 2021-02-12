@@ -14,6 +14,8 @@ sh 'pwd' }
             args '-u root -v pwd:/tmp' 
           }
 }
+lock ('slave-1')
+{
               steps {
                  //git branch: 'feature-dev', credentialsId: 'alpha-github-access', url: 'https://github.com/jp-git1986/hello-world-greeting.git'
 sh 'cd /tmp'       
@@ -22,6 +24,8 @@ sh 'mvn clean verify -DskipITs=true';
                   archive 'target/*.war'
 }
               }
+}
+
          stage('Static Code Analysis'){
        agent { docker {
             image 'maven:3-alpine'
