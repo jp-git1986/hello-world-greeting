@@ -1,11 +1,15 @@
 pipeline {
-     agent any
+     agent {label 'slave-1'}
      stages {
+          stage ("printenv")
+{
+sh 'echo env'
+}
           stage ("gitcheckout")
           {
             agent { docker {
             image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
+            args '-v /home/automation/workspace/hello-world-dev-job_feature-dev@2/:/root/.m2'
           }
 }
               steps {
