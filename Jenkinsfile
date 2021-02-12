@@ -43,7 +43,7 @@ stage('buildimage'){
 agent { docker {
  label 'slave-1'
  reuseNode true
- image 'maven:3-alpine'
+ image 'docker:latest'
  args '-u root -v pwd:/tmp -v /var/run/docker.sock:/var/run/docker.sock'
 }
 }
