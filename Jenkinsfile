@@ -3,7 +3,8 @@ pipeline {
      stages {
           stage ("printenv")
 {
-sh 'echo env'
+steps {
+sh 'echo env' }
 }
           stage ("gitcheckout")
           {
