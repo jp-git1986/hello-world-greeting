@@ -59,4 +59,5 @@ sh 'docker push hello-world-image:"$BUILD_NUMBER"'
 }
           
      }
-
+}
+}
