@@ -49,7 +49,7 @@ agent { docker {
 }
 steps{
 script {
-withDockerRegistry([credentialsId: 'dockerlogin', url: 'https://docker.io']
+withDockerRegistry([credentialsId: 'dockerlogin', url: 'https://docker.io'])
 {
 sh 'cd /tmp'
 sh 'docker build -t hello-world-image:"$BUILD_NUMBER" .'
