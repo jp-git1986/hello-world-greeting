@@ -52,7 +52,7 @@ scripts {
 withDockerRegistry([credentialsId: 'dockerlogin', url: 'https://docker.io']
 {
 sh 'cd /tmp'
-sh 'docker build -t hello-world-image":$BUILD_NUMBER" .
+sh 'docker build -t hello-world-image:"$BUILD_NUMBER" .'
 sh 'docker push hello-world-image":$BUILD_NUMBER"'
 }
           }
