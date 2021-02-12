@@ -35,7 +35,7 @@ sh 'mvn clean verify -DskipITs=true';
 options { skipDefaultCheckout() }
 steps{
     sh 'cd /tmp'
-    sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://104.197.208.234/:9000 -Dsonar.login=0308c497c6e118600ab06ce892caffef17c12c0e -Dsonar.projectName=hello-world-greetings -Dsonar.projectKey=hello-world-greetings -Dsonar.projectVersion=$BUILD_NUMBER';
+    sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://104.197.208.234:9000 -Dsonar.login=0308c497c6e118600ab06ce892caffef17c12c0e -Dsonar.projectName=hello-world-greetings -Dsonar.projectKey=hello-world-greetings -Dsonar.projectVersion=$BUILD_NUMBER';
 
 }
 }
