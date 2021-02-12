@@ -53,7 +53,8 @@ withDockerRegistry([credentialsId: 'dockerlogin', url: 'https://docker.io'])
 {
 sh 'cd /tmp'
 sh 'docker build -t hello-world-image:"$BUILD_NUMBER" .'
-sh 'docker push jayaprakashsaranya/hello-world-image:"$BUILD_NUMBER"'
+sh 'docker tag hello-world-image:"$BUILD_NUMBER" jayaprakashsaranya/helloworld:"$BUILD_NUMBER"'
+sh 'docker push jayaprakashsaranya/helloworld:"$BUILD_NUMBER"'
 }
           }
 }
