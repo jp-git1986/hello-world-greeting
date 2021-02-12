@@ -10,6 +10,7 @@ sh 'pwd' }
           stage ("gitcheckout")
           {
             agent { docker {
+            label 'slave-1'
             image 'maven:3-alpine'
             args '-u root -v pwd:/tmp' 
           }
@@ -27,6 +28,7 @@ sh 'mvn clean verify -DskipITs=true';
 
          stage('Static Code Analysis'){
        agent { docker {
+            label 'slave-1'
             image 'maven:3-alpine'
             args '-u root -v pwd:/tmp'
           }
