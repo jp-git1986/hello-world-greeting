@@ -31,9 +31,8 @@ sh 'mvn clean verify -DskipITs=true';
             label 'slave-1'
             image 'maven:3-alpine'
             args '-u root -v pwd:/tmp'
-          }
+          }}
 options { skipDefaultCheckout() }
-}
 steps{
 lock ('slave-1') {
     sh 'cd /tmp'
