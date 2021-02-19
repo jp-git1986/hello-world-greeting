@@ -1,5 +1,5 @@
 pipeline {
-     agent {label 'slave-1'}
+     agent any
      stages {
           stage ("printenv")
 {
@@ -8,22 +8,12 @@ sh 'env'
 sh 'pwd' }
 }
           stage ("gitcheckout")
-          {
-            agent { docker {
-            label 'slave-1'
-            image 'maven:3-alpine'
-            args '-u root -v pwd:/tmp' 
-          }
-}
-              steps {
-lock ('slave-1') {
+              steps { 
 sh 'cd /tmp'       
 sh 'mvn clean verify -DskipITs=true';
                   junit '**/target/surefire-reports/TEST-*.xml'
                   archive 'target/*.war'
 }
-}
-              }
 
          stage('Static Code Analysis'){
        agent { docker {
