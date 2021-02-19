@@ -7,14 +7,14 @@ steps {
 sh 'env'
 sh 'pwd' }
 }
-          stage ("gitcheckout")
+          stage ("gitcheckout") {
               steps { 
 sh 'cd /tmp'       
 sh 'mvn clean verify -DskipITs=true';
                   junit '**/target/surefire-reports/TEST-*.xml'
                   archive 'target/*.war'
 }
-
+          }
          stage('Static Code Analysis'){
        agent { docker {
             label 'slave-1'
