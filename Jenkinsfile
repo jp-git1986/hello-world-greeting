@@ -10,7 +10,7 @@ sh 'pwd' }
           stage ("gitcheckout") {
               steps { 
 sh 'cd /tmp'       
-sh 'mvn clean verify -DskipITs=true';
+sh 'mvn clean validate;
                   junit '**/target/surefire-reports/TEST-*.xml'
                   archive 'target/*.war'
 }
